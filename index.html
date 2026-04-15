@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>运势测算</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #0b0b1a, #1a0033);
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    color: gold;
+    font-size: 28px;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    background: gold;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+.lock {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>输入生日，解锁你的人生轨迹</h1>
+
+<input id="name" placeholder="请输入姓名"><br>
+<input id="birth" type="date"><br>
+
+<button onclick="generate()">立即测算</button>
+
+<div id="output" class="result"></div>
+
+</div>
+
+<script>
+function generate() {
+    let name = document.getElementById("name").value;
+    let birth = document.getElementById("birth").value;
+
+    if (!name || !birth) {
+        alert("请填写完整信息");
+        return;
+    }
+
+    let freeText = `
+    ${name}，你属于“隐性爆发型人格”。
+
+    你的人生不会一直平稳，而是在关键节点出现重大变化。
+    过去几年你已经经历过一次转折，但真正的机会正在靠近。
+
+    系统检测到：你即将迎来一次重要选择。
+    `;
+
+    let paidText = `
+    <div class="lock">
+    ⚠️ 重要内容未解锁<br><br>
+
+    ✔ 财富爆发时间点<br>
+    ✔ 事业关键转折<br>
+    ✔ 感情发展趋势<br><br>
+
+    👉 添加微信：Lucasy312 支付30元解锁完整报告
+    </div>
+    `;
+
+    document.getElementById("output").innerHTML = freeText + paidText;
+}
+</script>
+
+</body>
+</html>
